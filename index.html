@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="theme-color" content="#7159c1">
+	<title>Simple Calculator Js</title>
+	<meta name="description" content="This is a simple and customizable calculator">
+	<meta name="keywords" content="calculator, calculadora, sum, soma, calculate, calcular, online calculator,
+		customizable calculator, calculadora personalizável, Fabiopf02, javascript calculator">
+	<link rel="icon" href="assets/calculator-js.ico" type="image/*" sizes="128x128">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animations.css">
+	<link rel="stylesheet" href="css/box.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<main id="main">
+			<div class="calculator-container">
+				<img 
+					src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
+					alt="background"
+					class="zoom">
+				<div class="calculator">
+					<div class="rel">
+						<strong>Calculator</strong>
+						<span>
+							<button data-box="historic" data-key="h">📃</button>
+							<button data-box="image" data-key="b">🎨</button>
+						</span>
+					</div>
+					<input type="text" class="result" id="result" value="0" disabled/>
+					<div class="buttons">
+					</div>
+				</div>
+			</div>
+			<section id="image" class="box reverse_left">
+				<header>
+					<button class="close" data-key="c">
+						<span>+</span>
+					</button>
+					<h2>Background Image</h2>
+				</header>
+				<main>
+					<span>
+						<input type="checkbox" value="color" id="type" name="type">
+						<strong>Solid color</strong>
+					</span>
+					<div class="inputs">
+						<input type="file" accept="image/*" class="img h" name="change_image" onchange="preview(this)" id="change_image">
+						<input type="color" class="color" name="color" id="color">
+					</div>
+					<section class="preview">
+						<img class="image">
+						<span>
+							<button onclick="cancelPreview()">
+								<img src="./assets/cancel.svg" alt="cancel">
+							</button>
+							<button id="confirm" onclick="confirmPreview(this)">
+								<img src="./assets/checked.svg" alt="confirm">
+							</button>
+						</span>
+					</section>
+					<section class="properties" id="properties">
+					</section>
+					<section class="other">
+						<div class="row">
+							<input type="checkbox" name="animated" onchange="animation(this)" id="animated">
+							<code>Color animation</code>
+						</div>
+						<div class="row">
+							<input type="checkbox" name="noimage" onchange="background(this)" id="noimage">
+							<code>No background image / use solid color</code>
+						</div>
+					</section>
+				</main>
+			</section>
+	
+			<section id="historic" class="box reverse_right">
+				<header>
+					<button class="close" data-key="c">
+						<span>+</span>
+					</button>
+					<h2>Calculation History</h2>
+					<span>
+						<button onclick="deleteAll()">
+							<strong class="d">🗑 Delete All</strong>
+						</button>
+					</span>
+				</header>
+				<main class="items">
+				</main>
+			</section>
+		</main>
+		<footer>
+			<p>
+				Code by <a href="https://github.com/Fabiopf02/" target="_blank">Fabiopf02</a> |
+				View on <a href="https://github.com/Fabiopf02/calculator" target="_blank">Github</a>
+			</p>
+		</footer>
+	</div>
+	<script type="text/javascript" src="js/vanilla-tilt.js"></script>
+	<script type="text/javascript" defer>
+		VanillaTilt.init(document.querySelector(".calculator"), {
+			max: 10,
+			speed: 100,
+			transition: true,
+			perspective: 650,
+			scale: 0.95,
+			glare: true,
+			"max-glare": 0.2,
+		});
+	</script>
+	<script src="js/buttons.js" defer></script>
+	<script src="js/box.js" defer></script>
+	<script src="js/image.js" defer></script>
+	<script src="js/historic.js" defer></script>
+	<script src="js/main.js" defer></script>
+</body>
+</html>
